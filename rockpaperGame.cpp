@@ -82,7 +82,7 @@ string player2 ;
 
 int main() {
  
- game obj1, obj2;
+ game obj1;
  obj1.instruction();
  obj1.choose();
  obj1.condition();
