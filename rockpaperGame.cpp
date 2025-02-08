@@ -10,6 +10,7 @@ class game{
 public:
 string player1 ;
 string player2 ;
+int choo = 0;
 
     void instruction(){
         cout<<endl<<"------------- WElCOME TO ROCK, PAPER, SCISSORS GAME -------------"<<endl<<endl;
@@ -18,7 +19,24 @@ string player2 ;
         cout<<"2. PAPER beats ROCK"<<endl;
         cout<<"3. SCISSORS beats PAPER"<<endl<<endl<<"-----------------------------------------------------------------"<<endl<<endl;
         cout<<"PLAYER 1 & PLAYER 2 "<<endl<<endl;
-        cout<<"----------------- 1 time game running -----------------"<<endl<<endl;        
+        cout<<"----------------- PLAY WITH ? -----------------"<<endl;
+        cout<<"CHOOSE : 1. 2 player "<<endl;
+        cout<<"         2. play with AI"<<endl<<endl; 
+        cout<<"( Who to play with? ) Write number here : ";
+        cin>>choo;
+        cout<<endl<<endl;
+
+        if (choo == 1)
+        {
+          choose();
+        }
+        else if(choo == 2){
+          ai();
+        }
+        else{
+         cout<<"Type number correctly example : for play with AI type 2"<<endl;
+        }
+        
         
     }
 
@@ -33,15 +51,16 @@ string player2 ;
         cin>>player2;
     }
 
-    void vsai(){
+    void ai(){
 
         cout<<"CHOOSE : rock , paper , scissors"<<endl;
         cout<<"PLAYER 1 = ";
         cin>>player1;
 
-        // Create a random number generator engine
-         random_device rd;  // Seed for the random number engine
-         mt19937 gen(rd()); // Mersenne Twister engine
+
+        // Create a random number generator 
+         random_device rd;  
+         mt19937 gen(rd()); 
 
          // Define the range of the random number (1 to 3)
          uniform_int_distribution<> dis(1, 3);
@@ -55,14 +74,21 @@ string player2 ;
          if (random_number==1)
          {
             player2="rock";
+            cout<<"player 2 (AI) = rock"<<endl<<endl;
+            cout<<"_______playing with AI_______"<<endl;
          }
          if (random_number==2)
          {
             player2="paper";
+            cout<<"player 2 (AI) = paper"<<endl<<endl;
+            cout<<"_______playing with AI_______"<<endl;
+            
          }
          if (random_number==3)
          {
             player2="scissors";
+            cout<<"player 2 (AI) = scissors"<<endl<<endl;
+            cout<<"_______playing with AI_______"<<endl;
          }
     }
 
@@ -118,8 +144,6 @@ int main() {
  
  game obj1;
  obj1.instruction();
-//  obj1.choose();
-obj1.vsai();
  obj1.condition();
  
 
